@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.Student_wantedjobMapper">
+
+	<!-- 插入学生的兼职信息 -->
+	<insert id="insertjob" parameterType="student_wantedjob"
+		useGeneratedKeys="true" keyProperty="stu_id">
+		insert into
+		Student_wantedjob(stu_id,job_id,workplace,salary,workcleanform)
+		value(#{stu_id},#{job_id},#{workplace},#{salary},#{workcleanform})
+	</insert>
+
+	<!-- 修改学生的兼职信息 -->
+	<insert id="updatejob" parameterType="student_wantedjob"
+		useGeneratedKeys="true" keyProperty="stu_id">
+		update Student_wantedjob set
+		workplace=#{workplace},salary=#{salary},job_id=#{job_id},workcleanform=#{workcleanform}
+		where stu_id=#{stu_id}
+	</insert>
+
+
+
+	<!-- 根据id查求职意向表 -->
+	<select id="studentjob" resultType="student_wantedjob"
+		parameterType="student_wantedjob">
+		select * from student_wantedjob where stu_id=#{stu_id}
+	</select>
+
+</mapper>

@@ -1,0 +1,115 @@
+{
+  "data": [
+    {
+      "text": "管理模块",
+      "icon": "&#xe620;",
+      "subset": [
+        {
+          "text": "按钮",
+          "icon": "&#xe621;",
+          "href": "Others/btn.html"
+        },{
+          "text": "表单",
+          "icon": "&#xe621;",
+          "href": "Others/form.html"
+        },{
+          "text": "表格",
+          "icon": "&#xe621;",
+          "href": "Others/table.html"
+        },{
+          "text": "选项卡",
+          "icon": "&#xe621;",
+          "href": "Others/tab-card.html"
+        },{
+          "text": "进度条",
+          "icon": "&#xe621;",
+          "href": "Others/progress-bar.html"
+        },{
+          "text": "折叠面板",
+          "icon": "&#xe621;",
+          "href": "Others/folding-panel.html"
+        },{
+          "text": "辅助元素",
+          "icon": "&#xe621;",
+          "href": "Others/auxiliar.html"
+        }
+      ]
+    },{
+      "text": "业务模块",
+      "icon": "&#xe628;",
+      "subset": [
+         {
+          "text": "按钮",
+          "icon": "&#xe621;",
+          "href": "Others/btn.html"
+        },{
+          "text": "表单",
+          "icon": "&#xe621;",
+          "href": "Others/form.html"
+        },{
+          "text": "表格",
+          "icon": "&#xe621;",
+          "href": "Others/table.html"
+        },{
+          "text": "选项卡",
+          "icon": "&#xe621;",
+          "href": "Others/tab-card.html"
+        },{
+          "text": "进度条",
+          "icon": "&#xe621;",
+          "href": "Others/progress-bar.html"
+        },{
+          "text": "折叠面板",
+          "icon": "&#xe621;",
+          "href": "Others/folding-panel.html"
+        },{
+          "text": "辅助元素",
+          "icon": "&#xe621;",
+          "href": "Others/auxiliar.html"
+        },{
+          "text": "404",
+          "icon": "&#xe621;",
+          "href": "Others/404.html"
+        }
+      ]
+    },{
+      "text": "数据模块",
+      "icon": "&#xe628;",
+      "subset": [
+         {
+          "text": "按钮",
+          "icon": "&#xe621;",
+          "href": "Others/btn.html"
+        },{
+          "text": "表单",
+          "icon": "&#xe621;",
+          "href": "Others/form.html"
+        },{
+          "text": "表格",
+          "icon": "&#xe621;",
+          "href": "Others/table.html"
+        },{
+          "text": "选项卡",
+          "icon": "&#xe621;",
+          "href": "Others/tab-card.html"
+        },{
+          "text": "进度条",
+          "icon": "&#xe621;",
+          "href": "Others/progress-bar.html"
+        },{
+          "text": "折叠面板",
+          "icon": "&#xe621;",
+          "href": "Others/folding-panel.html"
+        },{
+          "text": "辅助元素",
+          "icon": "&#xe621;",
+          "href": "Others/auxiliar.html"
+        },{
+          "text": "404",
+          "icon": "&#xe621;",
+          "href": "Others/404.html"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.Student_baseinfoMapper">
+
+
+ <!-- 根据学生用户名查询用户在线 -->
+     <select id="isUserExists" resultType="student_baseinfo" parameterType="student_baseinfo">
+        select * from student_baseinfo where stu_username = #{stu_username} 
+     </select>
+   
+<!-- 根据学生id查学生账号 -->
+<select  id="getStudent" resultType="student_baseinfo"  >
+     select * from Student_baseinfo where stu_id = #{stu_id}
+</select>
+
+
+<!-- 根据学生账号密码查学生用户名 -->
+<select id="getStudentlogin" resultType="student_baseinfo" parameterType="student_baseinfo">
+   select * from Student_baseinfo where stu_username=#{stu_username} and stu_password=#{stu_password}
+</select>
+
+<!-- 插入学生的基本信息 -->
+<insert id="insert1" parameterType="student_baseinfo" useGeneratedKeys="true" keyProperty="stu_id">
+      insert into Student_baseinfo(stu_name,stu_username,stu_password,stu_telephone,stu_idcard,stu_email) values('null',#{stu_username},
+      <choose>
+           <when test="stu_password != null">#{stu_password}</when>
+           <otherwise>'0'</otherwise>
+      </choose>
+      ,'null' ,'null','null'
+      )
+</insert>
+
+
+<!-- 更新学生基本信息 -->
+<update id="update" parameterType="student_baseinfo" useGeneratedKeys="true" keyProperty="stu_id">
+     update Student_baseinfo set stu_name=#{stu_name} , stu_password=#{stu_password},stu_idcard=#{stu_idcard} , stu_email=#{stu_email} 
+     , stu_telephone=#{stu_telephone} where stu_id=#{stu_id}
+</update>
+
+
+
+</mapper>

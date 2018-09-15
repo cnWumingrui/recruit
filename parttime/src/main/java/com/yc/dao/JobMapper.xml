@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.JobMapper">
+	<!-- 使用默认mybatis：二级缓存 -->
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true"></cache>
+
+	<insert id="saveJob" parameterType="Job">
+		insert into
+		job(id,keycode,parameter,fathernode)
+		values(#{id},#{keycode},#{parameter},#{fathernode})
+	</insert>
+	<update id="updateJob" parameterType="Job">
+		update job
+		set 
+		keycode=#{keycode},parameter=#{parameter},fathernode=#{fathernode},
+		where
+		id=#{id}
+	</update>
+	<!-- 各种查询条件的拼接 -->
+	<sql id="conditionSql">
+		from job
+		<where>
+			<if test="keycode!=null and keycode!=''">
+				keycode like '%${keycode}%'
+			</if>
+			<if test="parameter!=null  and  parameter!=''">
+				and parameter = #{parameter}
+			</if>
+			
+			<if test="fathernode!=null and fathernode!=''">
+				and fathernode = #{fathernode}
+			</if>
+			<if test="id!=null and id!=''">
+				and id = #{id}
+			</if>
+		</where>
+	</sql>
+	
+	
+	<!-- 带查询条件，分页，排序的查询 -->
+	<select id="findJobCondition" parameterType="map" resultType="Job">
+		select * <include refid="conditionSql"/>
+	</select>
+	<!-- 统计查询 -->
+	<select id="findJobConditionCount" parameterType="map" resultType="Integer">
+		select count(1) <include refid="conditionSql"/>
+	</select>
+	
+	<select id="findJobBack" parameterType="map" resultType="Job">
+		select * from job where fathernode in(
+			select  fathernode from job where id=#{id}
+		)	
+	</select>
+	
+	
+	
+	<!-- 根据id删除单条信息 -->
+	<delete id="delSingleJob" parameterType="Job">
+		delete from Job where id=#{id}
+	</delete>
+	<!-- 根据ids删除多条信息 -->
+	<delete id="delMutiJob" parameterType="Job">
+		delete from Job where id in
+		<foreach collection="list" open="(" close=")" separator="," item="Job">
+			#{tag.tid}
+		</foreach>
+	</delete>
+	
+</mapper>

@@ -1,0 +1,191 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+#i1 {
+	width: 112px;
+	height: 40px;
+	margin: 20px 180px;
+}
+
+#img {
+	min-width: 8.97rem;
+	height: .88rem;
+	background-color: white ;
+	border-bottom: .01rem solid #e8e8e8;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 99;
+}
+
+#center {
+	background-color: #fafafa;
+	width: 80%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#d1 {
+	border: 1px solid rgb(0, 204, 136);
+	border-radius: 10px;
+	background-color: rgb(0, 204, 136);
+	width: 85px;
+}
+
+#img ul {
+	float: right;
+	margin-top: 40px;
+	position: relative;
+	left: -350px;
+}
+
+#img ul li {
+	float: left;
+	margin-left: 20px;
+}
+
+#img ul li a {
+	color: black;
+	font-size: 14px;
+}
+
+#img p {
+	color: white;
+	font-size: 46px;
+	float: right;
+	margin-top: 165px;
+}
+
+#line {
+	width: 100%;
+	height: 0px;
+	border: 0.5px #999 solid;
+}
+
+#txt  {
+	width:80%;
+	margin-top: 100px;
+	margin-left: 5%;
+}
+#txt ul {
+	margin-left: 250px;
+	margin-top: 30px;
+}
+
+#txt #u2 li {
+	float: left;
+	margin-left: 20px;
+	
+}
+
+#txt ul li span {
+	color: black;
+}
+
+#u1 a {
+	color: rgb(0, 204, 136);
+	margin-left: 140px;
+	position: relative;
+	top: -20px;
+}
+
+#u1 a:hover {
+	text-decoration: underline;
+}
+
+#t1 {
+	margin: 90px 250px;
+}
+
+#t1 ul {
+	float: left;
+}
+
+#t1 ul li {
+	float: left;
+}
+
+#u4 {
+	display: none;
+	position: absolute;
+	top: 480px;
+}
+
+#u4 li {
+	margin-left: 20px;
+	cursor: pointer;
+}
+
+#u4 li:hover {
+	text-decoration: underline;
+}
+
+#u5 {
+	display: none;
+	position: absolute;
+	top: 480px;
+	left: 330px;
+}
+
+#u5 li {
+	margin-left: 20px;
+	cursor: pointer;
+}
+
+#u5 li:hover {
+	text-decoration: underline;
+}
+
+#gz {
+	position: absolute;
+	top: 540px;
+	left: 250px;
+}
+
+#gz p {
+	font-size: 18px;
+}
+
+#gz li {
+	font-size: 14px;
+	color: #808080;
+	margin-top: 20px;
+}
+
+#bm {
+	width: 120px;
+	height: 33px;
+	background-color: rgb(71, 205, 136);
+	border-radius: 8px;
+	position: absolute;
+	top: 50px;
+	left: 600px;
+}
+
+.bm {
+	position: relative;
+	top: 6px;
+	color: white;
+	margin-left: 30px;
+}
+
+#jg {
+	color: red;
+	font-size: 20px;
+	width: 100px;
+	position: absolute;
+	top: 0px;
+	left: 600px;
+}

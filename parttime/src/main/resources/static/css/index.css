@@ -1,0 +1,451 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background: #FAFAFA;
+	font-size: 14px;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+#header {
+	width: 100%;
+	height: 80px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	background: #FFF;
+	border-bottom: 1px solid #E8E8E8;;
+}
+
+.header-m {
+	width: 897px;
+	height: 60px;
+	position: relative;
+	margin: 0 auto;
+}
+
+.header-m img {
+	position: absolute;
+	left: 0;
+	top: 20px;
+	width: 112px;
+}
+
+#nav {
+	position: absolute;
+	right: 0;
+	top: 32px;
+}
+
+#nav a {
+	float: left;
+	color: #000;
+	margin-left: 20px;
+}
+
+#nav a:hover {
+	color: #0C8;
+}
+
+#nav .entrance {
+	padding: 3px 10px;
+	background: #0C8;
+	border-radius: 16px;
+	color: #FFF;
+	margin-top: -3px;
+}
+
+#nav .entrance:hover {
+	color: #FFF;
+}
+
+#content {
+	width: 896px;
+	position: relative;
+	margin: 100px auto 0;
+}
+
+#part {
+	width: 100%;
+	height: 284px;
+	background: #FFF;
+	position: relative;
+}
+
+#choose {
+	width: 796px;
+	height: 164px;
+	position: absolute;
+	left: 50px;
+	top: 60px;
+}
+
+.choice {
+	width: 100%;
+	line-height: 30px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+#choiceprofession {
+	display: none;
+}
+
+.choice div {
+	float: left;
+	margin-right: 10px;
+}
+
+.choiceA  li {
+	float: left;
+	margin-right: 15px;
+	color: #999;
+	cursor: pointer;
+}
+
+.choiceA  .active {
+	color: #0C8;
+}
+
+.professions  li {
+	float: left;
+	margin-right: 15px;
+	color: #999;
+	cursor: pointer;
+}
+
+#method {
+	width: 100%;
+	height: 68px;
+	background: #FFF;
+	border-bottom: 1px solid #F2F2F2;
+	margin-top: 10px;
+}
+
+.sort {
+	float: left;
+	line-height: 68px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+.sort img {
+	margin-left: 5px;
+	width: 8px;
+}
+
+.sorted {
+	height: 45px;
+	border-radius: 6px;
+	font-size: 12px;
+	background: #FFF;
+	position: absolute;
+	z-index: 77;
+	margin-top: 60px;
+	margin-left: 70px;
+	box-shadow: 1px 1px 1px 2px #F5F5F5;
+	display: none;
+}
+
+#sort1 {
+	width: 454px;
+}
+
+#sort2 {
+	width: 500px;
+}
+
+.sorted li {
+	float: left;
+	line-height: 15px;
+	text-align: center;
+	margin-top: 16px;
+	border-right: 1px solid #F5F5F5;
+	cursor: pointer;
+}
+
+#sort1 li {
+	width: 19%;
+}
+
+#sort2 li {
+	width: 16%;
+}
+
+.sorted li:nth-child(5) {
+	border-right: none;
+}
+
+.parts {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+#part0 {
+	display: block;
+}
+
+#part1 {
+	display: none;
+}
+
+.parts li {
+	padding: 26px 70px 41px;
+	background: #FFF;
+	border-bottom: 1px solid #FAFAFA;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+
+.parts li:hover {
+	background: #FAFAFA;
+}
+
+.left {
+	width: 65%;
+	float: left;
+}
+
+.left div {
+	width: 100%;
+	line-height: 35px;
+	color: #999;
+}
+
+.left .title {
+	color: #2C2C2C;
+	font-size: 18px;
+}
+
+.right {
+	width: 35%;
+	float: left;
+	text-align: right;
+}
+
+.salary {
+	width: 100%;
+}
+
+.salary span:first-of-type {
+	color: #FF2F2F;
+	font-size: 18px;
+}
+
+.salary span:last-of-type {
+	color: #999;
+	font-size: 14px;
+}
+
+.signup {
+	width: 120px;
+	height: 35px;
+	line-height: 35px;
+	background: #47CD88;
+	color: #FFF;
+	border-radius: 15px;
+	text-align: center;
+	float: right;
+	margin-right: 5px;
+	margin-top: 30px;
+	box-shadow: 1px 1px 5px 1px rgba(71, 205, 136, .5);
+}
+
+.page {
+	height: 36px;
+	width: 426px;
+	margin: 30px auto 0;
+	white-space: nowrap;
+	color: #48576A;
+	display: none;
+}
+
+#page0 {
+	display: block;
+}
+
+#page1 {
+	width: 220px;
+	display: none;
+}
+
+.page button {
+	float: left;
+	width: 29px;
+	height: 30px;
+	line-height: 30px;
+	color: #E4E4E4;
+	background: #FFF;
+	border-radius: 2px 0 0 2px;
+	border: 1px solid #D1DBE5;
+}
+
+.page i {
+	display: block;
+	width: 28px;
+	height: 28px;
+	line-height: 28px;
+	font-size: 18px;
+	text-align: center;
+}
+
+.page .btn-prev {
+	cursor: not-allowed;
+	border-right: 0;
+}
+
+.page ul li {
+	float: left;
+	width: 28px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	background: #FFF;
+	border: 1px solid #D1DBE5;
+	border-right: 0;
+	margin-left: 0;
+	cursor: pointer;
+}
+
+.page ul .act {
+	color: #FFF;
+	background: #47CD88;
+	cursor: default;
+}
+
+.page ul .act:hover {
+	color: #FFF;
+}
+
+.page ul li:hover {
+	color: #47CD88;
+}
+
+.page  span {
+	float: left;
+	margin-left: 15px;
+	margin-top: 5px;
+}
+
+.page span .jump {
+	width: 29px;
+	height: 30px;
+	line-height: 30px;
+	color: #E4E4E4;
+	background: #FFF;
+	border: 1px solid #D1DBE5;
+	text-align: center;
+	border-radius: 2px;
+	margin-top: -5px;
+}
+
+#footer {
+	width: 100%;
+	height: 337px;
+	position: relative;
+	overflow: hidden;
+	background: #F2F2F2;
+}
+
+#footer .center {
+	width: 897px;
+	height: 141px;
+	margin: 80px auto 0;
+	color: #727272;
+}
+
+.center .item {
+	float: left;
+	width: 25%;
+}
+
+.center .item h3 {
+	color: #2D2D2D;
+	margin-bottom: 10px;
+	font-size: 21px;
+}
+
+.center .item a {
+	display: block;
+	color: #727272;
+	margin-bottom: 15px;
+	font-size: 12px;
+}
+
+.code {
+	width: 897px;
+	margin: 60px auto 0;
+	color: #727272;
+}
+
+.code p {
+	font-size: 10px;
+	text-align: center;
+}
+
+#connect {
+	width: 44px;
+	height: 44px;
+	position: fixed;
+	right: 30px;
+	bottom: 24px;
+	z-index: 999;
+	cursor: pointer;
+}
+
+#connect img {
+	width: 100%;
+}
+/*
+地区  学校
+*/
+select {
+	width: 150px;
+	height: 25px;
+	font-size: 14px;
+	letter-spacing: 5px;
+}
+
+.rows {
+	width: 200px;
+	border-radius: 14px;
+	background-color: #ffffff;
+}
+
+.divide {
+	color: #ccc;
+	text-align: center;
+	font-weight: lighter;
+}
+
+.label {
+	display: inline-block;
+	padding: 3px;
+	color: #0C8;
+	letter-spacing: 0px;
+}
+
+.text {
+	width: 80px;
+	color: #3a3838;
+}
+
+
+.pager { background:#fdfff2; border-bottom:1px solid #ccc; line-height:30px; }
+.pager ul { float:right; line-height:16px; margin:5px; }
+.pager ul li { float:left; margin:0 2px; padding:0 2px; border:1px solid #ccc; background:#fefefe; }
+.pager ul li.current { color:#ff3300; font-weight:bold; }
+.pager ul li a { text-decoration:none; }
+.pager ul li label { background:#fdfff2;  }

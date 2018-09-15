@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.AdvertiseMapper">
+	<!-- 查询带分页，排序的条件 -->
+	<select id="selectHouseCondition" parameterType="Map"
+		resultType="Advertise">
+		select * from advertise
+		<include refid="orderSql" />
+		<include refid="pageSql" />
+	</select>
+	
+	<!-- 分页的拼接条件 -->
+	<sql id="pageSql">
+		<if test="start!=null and start!='' ">
+			 limit #{start} ,<if test="pagesize!=null and pagesize!='' ">#{pagesize}</if>
+		</if>
+	</sql>
+	
+	<!-- 排序条件的拼接 -->
+	<sql id="orderSql">
+		<if test="sort!=null and sort!='' ">
+			order by #{sort} <if test="order!=null and order!='' ">#{order}</if>
+		</if>
+	</sql>
+	
+	<!-- 查询操作 -->
+	<select id="findAllList" resultType="Advertise">
+		select * from advertise
+	</select>
+	
+	<!-- 排序查询 -->
+	<select id="findList" parameterType="Map" resultType="Advertise">
+		select * from advertise  
+		<include refid="orderSql" />
+		<include refid="pageSql" />
+	</select>
+	
+	<!-- 统计数目：total -->
+	<select id="selectFunc" resultType="Integer">
+		select count(*) from advertise
+	</select>
+	
+	<!-- 添加操作 -->
+	<insert id="toAdd" parameterType="Advertise" useGeneratedKeys="true" keyProperty="id">
+		insert into Advertise(toURL,customer,picture,describes,jointime,timeway,status)  
+		values('${toURL}','${customer}','${picture}','${describes}',now(),'${timeway}',#{status})
+	</insert>
+	
+	<!-- 删除操作 -->
+	<delete id="delete" parameterType="Advertise">
+		delete from advertise where id =#{id}
+	</delete>
+	
+	<!-- 修改操作 -->
+	<update id="update" parameterType="Advertise">
+		update advertise set toURL =#{toURL},customer =#{customer},picture =#{picture},describes =#{describes}
+		,timeway =#{timeway},status =#{status} 
+		where id=#{id}
+	</update>
+	
+	<!-- 根据id删除多条信息 -->
+	<delete id="delMutil" parameterType="Advertise">
+		delete from advertise where id in 
+		<foreach collection="list" open="(" close=")" separator=","
+			item="advertise">
+			#{advertise.id}
+		</foreach>
+	</delete>
+	
+	<!-- 查找按结算方式 -->
+	<select id="findTimeway" parameterType="Advertise" resultType="Advertise">
+		select * from advertise where timeway =#{timeway}
+	</select>
+	
+	<!-- 更改状态 -->
+	<update id="outAdver" parameterType="Advertise">
+		update advertise set status=#{status}
+	</update>
+	
+	<!-- 重置操作 a -->
+	<select id="selectOne" parameterType="Advertise" resultType="Integer">
+		select status from advertise where id =#{id} 
+	</select>
+	
+	<!-- 查找图片名 -->
+	<select id="select" parameterType="Advertise" resultType="Advertise">
+		select * from advertise where id =#{id} 
+	</select>
+</mapper>

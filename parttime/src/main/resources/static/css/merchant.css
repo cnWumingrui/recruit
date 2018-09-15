@@ -1,0 +1,135 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background: #EFF3F6;
+}
+
+#content {
+	width: 1180px;
+	margin: 30px auto 0;
+	height: 500px;
+}
+
+.cont_left {
+	width: 920px;
+	float: left;
+	background: #FFF;
+	position: relative;
+	top: 95px;
+	display: none;
+}
+
+.cont_left .tit {
+	color: #0C8;
+	padding: 10px;
+	font-size: 20px;
+	border-bottom: 2px solid #0C8;
+}
+
+.cont_left .details {
+	width: 920px;
+	padding: 116px 0;
+	overflow: hidden;
+	margin-top: 30px;
+}
+
+.details img {
+	display: block;
+	width: 250px;
+	margin: 0 auto;
+}
+
+.details span {
+	display: block;
+	font-size: 16px;
+	color: #B3B3B3;
+	text-align: center;
+	margin-top: -10px;
+}
+
+.details p {
+	text-indent: 12px;
+	height: 30px;
+	line-height: 30px;
+}
+
+.details .txt {
+	position: relative;
+	height: 150px;
+	ine-height: 150px;
+}
+
+.details .txt1 {
+	position: relative;
+	height: 50px;
+	ine-height: 50px;
+}
+
+.details p textarea {
+	position: absolute;
+	top: 5px;
+	left: 90px;
+	height: 140px;
+	width: 500px;
+}
+
+.right {
+	width: 240px;
+	height: 500px;
+	float: right;
+	font-size: 14px;
+	position: relative;
+	top: 95px;
+}
+
+.message {
+	width: 200px;
+	height: 206px;
+	padding: 24px 20px;
+	background-color: #FFF;
+	border-radius: 6px;
+	margin-bottom: 30px;
+}
+
+.message .title {
+	height: 20px;
+	margin-bottom: 26px;
+	color: #354052;
+	text-align: center;
+}
+
+.message .button {
+	display: block;
+	width: 200px;
+	height: 48px;
+	line-height: 48px;
+	text-align: center;
+	border-radius: 6px;
+	border: 1px solid #0C8;
+	color: #0C8;
+	margin-bottom: 8px;
+	cursor: pointer;
+}
+
+.choiceB  li {
+	float: left;
+	margin-right: 10px;
+	color: #999;
+	cursor: pointer;
+}
+
+.choiceMerchant {
+	width: 100%;
+	line-height: 30px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+.choiceMerchant div {
+	text-indent: 12px;
+	float: left;
+	margin-right: 10px;
+}

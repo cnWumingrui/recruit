@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.Merchant_baseinfoMapper">
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true"></cache>
+
+	<!-- 检查用户是否存在 -->
+	<select id="isExists" resultType="Integer" parameterType="Merchant_baseinfo">
+		select
+		count(1)
+		from merchant_baseinfo where
+		merchant_username=#{merchant_telephone}
+	</select>
+
+	<!-- 检查用户是否存在 -->
+	<select id="isExistsWithLoign" resultType="Integer"
+		parameterType="Merchant_baseinfo">
+		select
+		count(1)
+		from merchant_baseinfo where
+		merchant_username=#{merchant_username}
+	</select>
+
+	<!-- 根据用户名和密码查询查询商家 -->
+	<select id="getMerchantbaseinfoByLogin" resultType="Merchant_baseinfo"
+		parameterType="Merchant_baseinfo">
+		select * from merchant_baseinfo where
+		merchant_username=#{merchant_username}
+		and
+		merchant_password=#{merchant_password}
+	</select>
+
+	<!-- 根据id查询用户 -->
+	<select id="getMerchantbaseinfo" resultType="Merchant_baseinfo"
+		parameterType="Merchant_baseinfo">
+		select *
+		from merchant_baseinfo where
+		merchant_id=#{merchant_id}
+	</select>
+
+	<!-- 根据用户名查询用户 -->
+	<select id="getMerchantbaseinfoByUsername" resultType="Merchant_baseinfo"
+		parameterType="Merchant_baseinfo">
+		select *
+		from merchant_baseinfo where
+		merchant_username=#{merchant_username}
+	</select>
+
+	<!-- 注册商家基本信息 -->
+	<insert id="RegMerchantbaseinfo" parameterType="Merchant_baseinfo"
+		useGeneratedKeys="true" keyProperty="merchant_id">
+		insert into
+		merchant_baseinfo(merchant_username,merchant_name,merchant_password,merchant_telephone,merchant_license,merchant_hostname,merchant_idcard,merchant_email)
+		values(#{merchant_username},
+		#{merchant_name},#{merchant_password},#{merchant_telephone},#{merchant_license},#{merchant_hostname},#{merchant_idcard},#{merchant_email})
+	</insert>
+
+	<!-- 添加商家基本信息 -->
+	<update id="insertMerchantbaseInfo" parameterType="Merchant_baseinfo">
+		update
+		merchant_baseinfo set
+		merchant_license=#{merchant_license},merchant_hostname=#{merchant_hostname},merchant_idcard=#{merchant_idcard},merchant_email=#{merchant_email}
+		where
+		merchant_id=#{merchant_id}
+	</update>
+
+
+	<!-- 更新商家基本信息 -->
+	<update id="upMerchantbaseinfo" parameterType="Merchant_baseinfo">
+		update
+		merchant_baseinfo set
+		merchant_name
+		=#{merchant_name},
+		merchant_telephone=#{merchant_telephone}
+		where
+		merchant_id=#{merchant_id}
+	</update>
+	
+	<!-- 查询所有用户List -->
+  <!-- 分页的拼接条件 -->
+  <sql id="pageSql">
+    <if test="start!=null and start!='' ">
+       limit #{start} ,<if test="pagesize!=null and pagesize!='' ">#{pagesize}</if>
+    </if>
+  </sql>
+  
+  <!-- 排序条件的拼接 -->
+  <sql id="orderSql">
+    <if test="sort!=null and sort!='' ">
+      order by #{sort} <if test="order!=null and order!='' ">#{order}</if>
+    </if>
+  </sql>
+
+  <!-- 排序查询 -->
+  <select id="getAllMerchantList" parameterType="Map" resultType="Merchant_baseinfo">
+    select * from merchant_baseinfo  
+    <include refid="orderSql" />
+    <include refid="pageSql" />
+  </select>
+  
+  <!-- 统计admin数目：total -->
+  <select id="getAllMerchantListTotal" resultType="Integer">
+    select count(*) from merchant_baseinfo
+  </select>
+  
+  <!-- 权限设置 -->
+  <update id="setMerchantPower" parameterType="Merchant_baseinfo">
+    update merchant_baseinfo set power=#{power} where merchant_id=#{merchant_id}
+  </update>
+</mapper>

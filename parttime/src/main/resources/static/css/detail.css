@@ -1,0 +1,81 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background: #EFF3F6;
+}
+
+#content {
+	width: 1180px;
+	margin: 30px auto 0;
+	height: 500px;
+}
+
+.cont_left {
+	width: 920px;
+	background: #FFF;
+	display: block;
+	margin: 0 auto;
+}
+
+.cont_left .tit {
+	color: #0C8;
+	padding: 10px;
+	font-size: 20px;
+	border-bottom: 2px solid #0C8;
+}
+
+.cont_left .details {
+	width: 920px;
+	padding: 116px 0;
+	overflow: hidden;
+}
+
+.details img {
+	display: block;
+	width: 250px;
+	margin: 0 auto;
+}
+
+.details span {
+	display: block;
+	font-size: 16px;
+	color: #B3B3B3;
+	text-align: center;
+	margin-top: -10px;
+}
+
+.details p {
+	text-indent: 12px;
+	height: 30px;
+	line-height: 30px;
+}
+
+.details .txt {
+	position: relative;
+	height: 150px;
+	ine-height: 150px;
+}
+
+.details .txt1 {
+	position: relative;
+	height: 50px;
+	ine-height: 50px;
+}
+
+.details p textarea {
+	position: absolute;
+	top: 5px;
+	left: 90px;
+	height: 140px;
+	width: 500px;
+}
+
+.choiceB  li {
+	float: left;
+	margin-right: 15px;
+	color: #999;
+	cursor: pointer;
+}

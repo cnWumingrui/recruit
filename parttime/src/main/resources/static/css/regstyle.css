@@ -1,0 +1,170 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+#i1 {
+	width: 112px;
+	height: 40px;
+	margin: 20px 180px;
+}
+
+#img {
+	width: 100%;
+	height: 590px;
+	background: url(../img/index_banner.jpg);
+}
+
+#d1 {
+	border: 1px solid rgb(0, 204, 136);
+	border-radius: 10px;
+	background-color: rgb(0, 204, 136);
+	width: 85px;
+}
+
+#img ul {
+	float: right;
+	margin-top: 40px;
+	position: relative;
+	left: -350px;
+}
+
+#img ul li {
+	float: left;
+	margin-left: 20px;
+}
+
+#img ul li a {
+	color: white;
+	font-size: 14px;
+}
+
+#p1 {
+	color: white;
+	font-size: 46px;
+	margin-top: 65px;
+	margin-left: 180px;
+}
+
+#s1 {
+	color: white;
+	font-size: 46px;
+	margin-top: 180px;
+	position: relative;
+	left: 180px;
+}
+
+#b1 {
+	width: 120px;
+	height: 25px;
+	background-color: rgb(0, 204, 136);
+	border-radius: 10px;
+	position: relative;
+	top: 300px;
+	left: 750px;
+}
+
+#b1 a {
+	color: white;
+	font-size: 16px;
+	margin-left: 25px;
+}
+
+#b2 {
+	width: 120px;
+	height: 25px;
+	background-color: rgb(0, 204, 136);
+	border-radius: 10px;
+	position: relative;
+	top: 275px;
+	left: 950px;
+}
+
+#b2 a {
+	color: white;
+	font-size: 16px;
+	margin-left: 20px;
+}
+
+#d2 {
+	position: absolute;
+	top: 100px;
+	right: 180px;
+	padding: 36px 37.5px 18.75px;
+	width: 350px;
+	height: 464.5px;
+	background: hsla(0, 0%, 100%, .8);
+	text-align: center;
+	border-radius: 4.5px;
+	display: block;
+}
+
+.el-form input {
+	margin-top: 10px;
+}
+
+.el-input__inner {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: #fff;
+	background-image: none;
+	border-radius: 4px;
+	border: 1px solid #bfcbd9;
+	box-sizing: border-box;
+	color: #1f2d3d;
+	font-size: inherit;
+	height: 36px;
+	line-height: 1;
+	outline: 0;
+	padding: 3px 10px;
+	transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+}
+
+.el-button {
+	display: inline-block;
+	line-height: 1;
+	white-space: nowrap;
+	cursor: pointer;
+	background: #fff;
+	border: 1px solid #c4c4c4;
+	color: #1f2d3d;
+	margin-top: 40px;
+	padding: 10px 15px;
+	border-radius: 4px;
+	font-size: 14px;
+	box-sizing: border-box;
+	outline: 0;
+	text-align: center;
+}
+
+.el-button--primary {
+	background-color: #0c8;
+	border-color: #0c8;
+	color: #fff;
+	width: 100%;
+	height: 40px;
+	margin-top: 10px;
+}
+
+.txt:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+#dui {
+	display: none;
+}
+
+#cha {
+	display: none;
+}

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.Merchant_wantedjobMapper">
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true"></cache>
+	<!-- 检查用户是否存在 -->
+	<select id="isExists" resultType="Integer" parameterType="Merchant_wantedjob">
+		select
+		count(1)
+		from merchant_baseinfo where
+		merchant_username=#{merchant_username}
+	</select>
+
+	<!-- 根据id查询商户是否存在 -->
+	<select id="getMerchantwantjob" resultType="Merchant_wantedjob"
+		parameterType="Merchant_wantedjob">
+		select *
+		from merchant_wantedjob where
+		merchant_wantedjob_id=#{merchant_wantedjob_id}
+	</select>
+
+	<!-- 添加商家发布信息 -->
+	<insert id="InsertMerchantwantedjob" parameterType="Merchant_wantedjob"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into
+		merchant_wantedjob(title,merchant_id,salary,job_id,
+		workplace,workdescp,workcleanform,workdemand,workcontent,posttime)
+		values(#{title},#{merchant_id},#{salary},#{job_id}
+		,#{workplace},#{workdescp},#{workcleanform},#{workdemand},#{workcontent},date_format(now(),'%Y-%c-%e
+		%k:%i'))
+	</insert>
+
+	<!-- 更新商家发布信息 -->
+	<update id="UpdateMerchantwantedjob" parameterType="Merchant_wantedjob">
+		update
+		merchant_wantedjob set title=#{title},
+		salary=#{salary},
+		,workdescp=#{workdescp},workcleanform=#{workcleanform},workdemand=#{workdemand},workcontent=#{workcontent}
+		where
+		merchant_wantedjob_id=#{merchant_wantedjob_id}
+	</update>
+
+
+	<!-- 查询商家所有的工作信息 -->
+	<select id="findListWantedJob" parameterType="Merchant_wantedjob"
+		resultType="Merchant_wantedjob">
+		select merchant_wantedjob_id, title,posttime from
+		merchant_wantedjob
+		where
+		merchant_id=#{merchant_id}
+	</select>
+
+	<!-- 各种查询条件的拼接 -->
+	<sql id="conditionSql">
+		from merchant_wantedjob
+		<where>
+			<if test="workcleanform !=null  and workcleanform!=''">
+				workcleanform like '%${workcleanform}%'
+			</if>
+			<if test="minPrice !=null  and maxPrice!=null">
+				and price between (#{minPrice} and #{maxPrice})
+			</if>
+			<if test="job_id !=null  and job_id != '' ">
+				and job_id=#{job_id}
+			</if>
+		</where>
+	</sql>
+
+	<!-- 排序条件的拼接 -->
+	<sql id="orderSql">
+		<if test="orderby!=null and orderby!='' ">
+			order by #{orderby}
+			<if test="orderway!=null and orderway!='' ">#{orderway}</if>
+		</if>
+	</sql>
+
+	<!-- 分页的拼接条件 -->
+  <sql id="pageSql">
+    <if test="start!=null and pageSize!=null">
+      limit #{start},#{pageSize}
+    </if>
+  </sql>
+
+	<!-- 查询带分页，排序的条件 -->
+	<select id="selectWantedjobCondition" parameterType="Map"
+		resultType="Merchant_wantedjob">
+		select *
+		<include refid="conditionSql" />
+		<include refid="orderSql" />
+		<include refid="pageSql" />
+	</select>
+<!-- 统计查询 -->
+  <select id="findWantedjobConditionCount" parameterType="map" resultType="Integer">
+    select count(1) <include refid="conditionSql"/>
+  </select>
+</mapper>

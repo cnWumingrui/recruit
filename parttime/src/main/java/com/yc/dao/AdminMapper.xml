@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.AdminMapper">
+	<!-- 查询带分页，排序的条件 -->
+	<select id="selectHouseCondition" parameterType="Map"
+		resultType="Admin">
+		select * from admin
+		<include refid="orderSql" />
+		<include refid="pageSql" />
+	</select>
+	
+	<!-- 分页的拼接条件 -->
+	<sql id="pageSql">
+		<if test="start!=null and start!='' ">
+			 limit #{start} ,<if test="pagesize!=null and pagesize!='' ">#{pagesize}</if>
+		</if>
+	</sql>
+	
+	<!-- 排序条件的拼接 -->
+	<sql id="orderSql">
+		<if test="sort!=null and sort!='' ">
+			order by #{sort} <if test="order!=null and order!='' ">#{order}</if>
+		</if>
+	</sql>
+
+	<!-- 排序查询 -->
+	<select id="findList" parameterType="Map" resultType="Admin">
+		select * from admin  
+		<include refid="orderSql" />
+		<include refid="pageSql" />
+	</select>
+	
+	<!-- 统计admin数目：total -->
+	<select id="selectFunc" resultType="Integer">
+		select count(*) from admin
+	</select>
+
+	<!-- 检查用户是否存在 -->
+	<select id="isExists" resultType="Admin" parameterType="Admin">
+		select * from Admin where admin_username=#{admin_username}
+	</select>
+	
+	<!-- 登录操作 -->
+	<select id="login" parameterType="Admin" resultType="Admin">
+		select * from admin where admin_username=#{admin_username} and admin_password=#{admin_password}
+	</select>
+	
+	<!-- 注册操作 -->
+	<insert id="reg" parameterType="Admin" useGeneratedKeys="true" keyProperty="admin_id">
+		insert into Admin(admin_username,admin_password,admin_jointime,admin_permission)  
+		values('${admin_username}','${admin_password}',now(),${admin_permission})
+	</insert>
+	
+	<!-- 查询操作 -->
+	<select id="findAllList" resultType="Admin">
+		select * from Admin
+	</select>
+	
+	<!-- 删除操作 -->
+	<delete id="delete" parameterType="Admin">
+		delete from Admin where admin_id =#{admin_id} or admin_username=#{admin_username}
+	</delete>
+	
+	<!-- 修改操作 -->
+	<update id="update" parameterType="Admin">
+		update admin set admin_password =#{admin_password} where admin_username=#{admin_username}
+	</update>
+	
+	<!-- 密码校对操作 -->
+	<select id="updatePwd" parameterType="Admin" resultType="Integer">
+		select count(1) from Admin where admin_username=#{admin_username} and admin_password='${admin_oldpassword}'
+	</select>
+	
+	<!-- 密码重置操作 a -->
+	<update id="re" parameterType="Admin">
+		update admin set admin_password = '0cc175b9c0f1b6a831c399e269772661' where admin_id =#{admin_id} 
+	</update>
+	
+	<!-- 存IP -->
+	<update id="ip" parameterType="Admin">
+		update admin set admin_lastip = #{admin_lastip} where admin_id =#{admin_id} 
+	</update>
+	
+	<!-- 根据id删除多条信息 -->
+	<delete id="delMutilAdmin" parameterType="Admin">
+		delete from admin where admin_id in 
+		<foreach collection="list" open="(" close=")" separator=","
+			item="admin">
+			#{admin.admin_id}
+		</foreach>
+	</delete>
+</mapper>
